@@ -1,0 +1,6 @@
+{
+    "allowed_queries_regex": ["^SELECT\\s+COUNT\\s*\\(.*\\)\\s*;", "^SELECT\\s+SUM\\s*\\(.*\\)\\s*;"],
+    "epsilon": 0.5,
+    "delta": 0.1
+}
+  
