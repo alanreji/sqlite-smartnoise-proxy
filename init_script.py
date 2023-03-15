@@ -3,10 +3,10 @@ import sqlite3
 import os
 
 # Check if the database file exists
-if not os.path.exists('data/db/employees.db'):
+if not os.path.exists('employees.db'):
     # Create a connection to the database
     # If it doesn't exist, create it
-    conn = sqlite3.connect('data/db/employees.db')
+    conn = sqlite3.connect('employees.db')
 
     # Create a cursor object to execute SQL commands
     cursor = conn.cursor()
