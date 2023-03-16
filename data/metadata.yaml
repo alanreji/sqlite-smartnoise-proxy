@@ -1,0 +1,24 @@
+"":
+  MySchema:
+    employees:
+      censor_dims:
+        - name
+        - email
+        - phone_number
+      max_ids: 1
+      employee_id:
+        type: int
+        is_key: true
+        min: 1
+        max: 36
+      name:
+        type: string
+      email:
+        type: string
+      salary:
+        type: int
+        min: 50000
+        max: 90000
+      phone_number:
+        type: string
+

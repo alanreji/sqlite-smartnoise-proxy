@@ -1,26 +1,29 @@
 import json
+import snsql
 from flask import Flask, request, jsonify
 import sqlite3
-from opendp.smartnoise.sql import PrivateReader
+from snsql import Privacy
 from query_validator import validate_query
 
 app = Flask(__name__)
 
 #loading the config file
-config = json.load(open('config.json'))
+config = json.load(open('config/config.json'))
 
 # Define the list of allowed query regexes
-allowed_queries_regex_list = config['allowed_queries']
+allowed_queries_regex_list = config['allowed_queries_regex']
 
 # Define the privacy parameters for the SmartNoise reader
-epsilon = config['epsilon']
-delta = config['delta']
+privacy = Privacy(epsilon=config['epsilon'], delta=config['delta'])
+
+# Setting the meta path
+meta_path = 'data/metadata.yaml'
 
 # Create a connection to the SQLite database
-conn = sqlite3.connect('data/db/employees.db')
+conn = sqlite3.connect('employees.db')
 
 # Create a private reader object using the SmartNoise library
-reader = PrivateReader.from_connection(conn, epsilon=epsilon, delta=delta)
+reader = snsql.from_connection(conn, privacy=privacy, metadata=meta_path)
 
 @app.route('/', methods=['POST'])
 def query_db():
