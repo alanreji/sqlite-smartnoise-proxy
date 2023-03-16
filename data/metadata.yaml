@@ -1,0 +1,25 @@
+---
+"":
+  "":
+    employees:
+      row_privacy: true
+      max_ids: 1
+      censor_dims:
+        - name
+        - email
+        - phone_number
+      id:
+        type: int
+        is_key: true
+        lower: 1
+        upper: 36
+      name:
+        type: string
+      email:
+        type: string
+      salary:
+        type: int
+        lower: 50000
+        upper: 90000
+      phone:
+        type: string

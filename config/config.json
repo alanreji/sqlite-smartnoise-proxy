@@ -1,0 +1,7 @@
+{
+    "allowed_sql_functions": ["SUM", "COUNT"],
+    "api_key": "d21976fe-b5a0-4132-9d0d-f88f6b1d398c",
+    "epsilon": 0.8,
+    "delta": 0.027777777,
+    "privacy_budget": 10
+}
