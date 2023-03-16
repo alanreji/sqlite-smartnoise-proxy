@@ -1,4 +1,5 @@
 import json
+import os
 import snsql
 from flask import Flask, request, jsonify
 import sqlite3
@@ -20,7 +21,7 @@ privacy = Privacy(epsilon=config['epsilon'], delta=config['delta'])
 meta_path = 'data/metadata.yaml'
 
 # Create a connection to the SQLite database
-conn = sqlite3.connect('employees.db')
+conn = sqlite3.connect(os.path.realpath('data/employees.db'))
 
 # Create a private reader object using the SmartNoise library
 reader = snsql.from_connection(conn, privacy=privacy, metadata=meta_path)
