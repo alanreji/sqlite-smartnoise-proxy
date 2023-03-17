@@ -18,7 +18,7 @@ READER = snsql.from_connection(DB_CONN, privacy=CONFIG.privacy, metadata=DB_META
 
 app = Flask(__name__)
 
-@app.route('/', methods=['POST'])
+@app.route('/runQuery', methods=['POST'])
 def query_db():
     # Validate the API key
     api_key = request.headers.get('X-API-Key')
