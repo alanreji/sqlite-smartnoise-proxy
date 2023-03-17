@@ -26,6 +26,6 @@ class PrivateQueryRunnerTests(unittest.TestCase):
 
         # Call the method and assert that it returns an error response
         query = 'SELECT * FROM employees'
-        expected_result = ({'error': 'Something went wrong'}, 500)
+        expected_result = ({'query error': 'Something went wrong'}, 500)
         self.assertEqual(PrivateQueryRunner.run_query(query, self.reader_mock), expected_result)
         self.reader_mock.execute.assert_called_once_with(query)
