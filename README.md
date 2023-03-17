@@ -32,7 +32,7 @@ curl --location 'http://127.0.0.1:5050/runQuery' \
     "query": "SELECT COUNT(*) FROM employees;"
 }'
 ```
-The API key can be found in the `config/config.json` file.
+The API key can be found in the `config/config.json` file (API keys shouldn't be saved in config files).
 
 #### Unit tests
 
@@ -43,6 +43,9 @@ Run unit tests using `python unit_tests.py`
 API testing can be done using the postman collection test suite available at https://github.com/alanreji/smartnoise-proxy-api-test-suite
 
 #### Configuration and metadata
+
+> **Warning**
+> It is important to not store sensitive information such as privacy parameters and API keys in the config file, as this can lead to potential security breaches. While this project may demonstrate the basic functionality of an interface/proxy for a DBMS, it is recommended to take additional security measures and best practices when deploying it in a real-world setting.
 
 The application works with a set of configuration, which can be found in the `config` directory. The config file contains `allowed_sql_functions`, `api_key` and privacy attributes - `epsilon`, `delta`, and `privacy budget`.
 The `metadata.yaml` contains metadata about the datastore/tables which we are applying DP on.
