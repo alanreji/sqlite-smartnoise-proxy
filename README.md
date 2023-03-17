@@ -32,7 +32,7 @@ curl --location 'http://127.0.0.1:5050/runQuery' \
     "query": "SELECT COUNT(*) FROM employees;"
 }'
 ```
-The API key can be changed in the `config/config.json` file.
+The API key can be found in the `config/config.json` file.
 
 #### Unit tests
 
